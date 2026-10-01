@@ -46,30 +46,30 @@ typedef struct {
  *  GPIO Clock Control
  */
 
-void GPIO_CLKControl(void);
+ut_Status GPIO_CLKControl(GPIO_RegDef_t *pGPIOBaseAddr, bool EnDis);
 
 /*
  *  GPIO Initialization and De-Initialization
  */
 
-void GPIO_Init(void);
-void GPIO_DeInit(void);
+ut_Status GPIO_Init(GPIO_Handler_t *pGPIOHandle);
+ut_Status GPIO_DeInit(GPIO_RegDef_t *pGPIOBaseAddr);
 
 /*
  *  GPIO Read and Write
  */
 
-void GPIO_ReadPortPin(void);
-void GPIO_ReadPort(void);
-void GPIO_WritePortPin(void);
-void GPIO_WritePort(void);
-void GPIO_TogglePin(void);
+uint8_t GPIO_ReadPortPin(GPIO_RegDef_t *pGPIOBaseAddr, uint8_t pinNumber);
+uint16_t GPIO_ReadPort(GPIO_RegDef_t *pGPIOBaseAddr);
+ut_Status GPIO_WritePortPin(GPIO_RegDef_t *pGPIOBaseAddr, uint8_t pinNumber, bool value);
+ut_Status GPIO_WritePort(GPIO_RegDef_t *pGPIOBaseAddr, uint16_t value);
+ut_Status GPIO_TogglePin(GPIO_RegDef_t *pGPIOBaseAddr, uint8_t pinNumber);
 
 /*
  *  GPIO Interrupt config and Handler
  */
 
-void GPIO_INTRConfig(void);
-void GPIO_INTRHandler(void);
+ut_Status GPIO_INTRConfig(uint8_t pinNumber, uint8_t IRQPriority, bool EnDis);
+void GPIO_INTRHandler(uint8_t pinNumber);
 
 #endif /* INC_GPIODRIVER_H_ */

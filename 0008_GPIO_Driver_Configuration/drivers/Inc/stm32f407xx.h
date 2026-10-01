@@ -9,6 +9,7 @@
 #define INC_STM32F407XX_H_
 
 #include<stdint.h>
+#include<stdbool.h>
 
 /* *************** MEMORY BASE ADDRESS **********************	*/
 
@@ -231,5 +232,14 @@ typedef struct {
 
 #define GPIO_SET_PIN						SET
 #define GPIO_CLEAR_PIN						RESET
+
+/* ************************************************
+ *  RETURN STATUS STRUCTURE
+ * *********************************************** */
+
+typedef enum {
+	ERR_FAIL,
+	ERR_OK,
+}ut_Status;
 
 #endif /* INC_STM32F407XX_H_ */
