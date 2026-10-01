@@ -219,4 +219,17 @@ typedef struct {
 
 #define SYSCFG_CLK_DIS						(RCC->RCC_APB2ENR &= ~(1 << 14))
 
+/* ************************************************
+ *  DEFINITIONS
+ * *********************************************** */
+
+#define ENABLE 								1
+#define DISABLE								0
+
+#define SET									ENABLE
+#define RESET								DISABLE
+
+#define GPIO_SET_PIN						SET
+#define GPIO_CLEAR_PIN						RESET
+
 #endif /* INC_STM32F407XX_H_ */
