@@ -38,6 +38,47 @@ typedef struct {
 
 /* ************************************************
  *
+ * GPIO MODE VALUES
+ *
+ * *************************************************/
+
+#define GPIO_MODE_IN						0
+#define GPIO_MODE_OUT						1
+#define GPIO_MODE_ALTFUN					2
+#define GPIO_MODE_ANALOG					3
+
+/* ************************************************
+ *
+ * GPIO OUTPUT TYPE VALUES
+ *
+ * *************************************************/
+
+#define GPIO_OUTPUT_TYPE_PUSHPULL			0
+#define GPIO_OUTPUT_TYPE_OPENDRAIN			1
+
+/* ************************************************
+ *
+ * GPIO OUTPUT SPEED VALUES
+ *
+ * *************************************************/
+
+#define GPIO_OUTPUT_SPEED_LOW				0
+#define GPIO_OUTPUT_SPEED_MEDIUM			1
+#define GPIO_OUTPUT_SPEED_HIGH				2
+#define GPIO_OUTPUT_SPEED_VERYHIGH			3
+
+/* ************************************************
+ *
+ * GPIO PULL-UP / PULL-DOWN VALUES
+ *
+ * *************************************************/
+
+#define GPIO_NO_PULL_UP_DOWN				0
+#define GPIO_PULL_UP						1
+#define GPIO_PULL_DOWN						2
+
+/* ************************************************
+ *
  * API's Supported by this driver
  *
  * *************************************************/
@@ -46,14 +87,14 @@ typedef struct {
  *  GPIO Clock Control
  */
 
-ut_Status GPIO_CLKControl(GPIO_RegDef_t *pGPIOBaseAddr, bool EnDis);
+void GPIO_CLKControl(GPIO_RegDef_t *pGPIOBaseAddr, bool EnDis);
 
 /*
  *  GPIO Initialization and De-Initialization
  */
 
-ut_Status GPIO_Init(GPIO_Handler_t *pGPIOHandle);
-ut_Status GPIO_DeInit(GPIO_RegDef_t *pGPIOBaseAddr);
+void GPIO_Init(GPIO_Handler_t *pGPIOHandle);
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOBaseAddr);
 
 /*
  *  GPIO Read and Write
@@ -61,15 +102,15 @@ ut_Status GPIO_DeInit(GPIO_RegDef_t *pGPIOBaseAddr);
 
 uint8_t GPIO_ReadPortPin(GPIO_RegDef_t *pGPIOBaseAddr, uint8_t pinNumber);
 uint16_t GPIO_ReadPort(GPIO_RegDef_t *pGPIOBaseAddr);
-ut_Status GPIO_WritePortPin(GPIO_RegDef_t *pGPIOBaseAddr, uint8_t pinNumber, bool value);
-ut_Status GPIO_WritePort(GPIO_RegDef_t *pGPIOBaseAddr, uint16_t value);
-ut_Status GPIO_TogglePin(GPIO_RegDef_t *pGPIOBaseAddr, uint8_t pinNumber);
+void GPIO_WritePortPin(GPIO_RegDef_t *pGPIOBaseAddr, uint8_t pinNumber, bool value);
+void GPIO_WritePort(GPIO_RegDef_t *pGPIOBaseAddr, uint16_t value);
+void GPIO_TogglePin(GPIO_RegDef_t *pGPIOBaseAddr, uint8_t pinNumber);
 
 /*
  *  GPIO Interrupt config and Handler
  */
 
-ut_Status GPIO_INTRConfig(uint8_t pinNumber, uint8_t IRQPriority, bool EnDis);
+void GPIO_INTRConfig(uint8_t pinNumber, uint8_t IRQPriority, bool EnDis);
 void GPIO_INTRHandler(uint8_t pinNumber);
 
 #endif /* INC_GPIODRIVER_H_ */

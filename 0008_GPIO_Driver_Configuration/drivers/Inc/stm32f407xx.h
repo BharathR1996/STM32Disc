@@ -166,15 +166,15 @@ typedef struct {
  * GPIO CLOCK ENABLE DEFINITIONS
  * *********************************************** */
 
-#define GPIOA_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 0))
-#define GPIOB_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 1))
-#define GPIOC_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 2))
-#define GPIOD_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 3))
-#define GPIOE_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 4))
-#define GPIOF_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 5))
-#define GPIOG_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 6))
-#define GPIOH_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 7))
-#define GPIOI_CLK_EN						(RCC->RCC_AHB1ENR |= (1 << 8))
+#define GPIOA_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 0))
+#define GPIOB_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 1))
+#define GPIOC_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 2))
+#define GPIOD_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 3))
+#define GPIOE_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 4))
+#define GPIOF_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 5))
+#define GPIOG_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 6))
+#define GPIOH_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 7))
+#define GPIOI_CLK_EN()						(RCC->RCC_AHB1ENR |= (1 << 8))
 
 /* ************************************************
  * SPI CLOCK ENABLE DEFINITIONS
@@ -196,29 +196,34 @@ typedef struct {
  * SYSCFG CLOCK ENABLE DEFINITIONS
  * *********************************************** */
 
-#define SYSCFG_CLK_EN						(RCC->RCC_APB2ENR |= (1 << 14))
+#define SYSCFG_CLK_EN()						(RCC->RCC_APB2ENR |= (1 << 14))
 
 
 /* ************************************************
  * GPIO CLOCK DISABLE DEFINITIONS
  * *********************************************** */
 
-#define GPIOA_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 0))
-#define GPIOB_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 1))
-#define GPIOC_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 2))
-#define GPIOD_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 3))
-#define GPIOE_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 4))
-#define GPIOF_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 5))
-#define GPIOG_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 6))
-#define GPIOH_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 7))
-#define GPIOI_CLK_DIS						(RCC->RCC_AHB1ENR &= ~(1 << 8))
+#define GPIOA_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 0))
+#define GPIOB_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 1))
+#define GPIOC_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 2))
+#define GPIOD_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 3))
+#define GPIOE_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 4))
+#define GPIOF_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 5))
+#define GPIOG_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 6))
+#define GPIOH_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 7))
+#define GPIOI_CLK_DIS()						(RCC->RCC_AHB1ENR &= ~(1 << 8))
 
+/* ************************************************
+ * GPIO MODULE RESET DEFINITIONS
+ * *********************************************** */
+#define GPIO_PERIPHERAL_RESET(pos)				(RCC->RCC_APB1RSTR &= ~(1 << pos))
+#define GPIO_PERIPHERAL_SET(pos)				(RCC->RCC_APB1RSTR |= (1 << pos))
 
 /* ************************************************
  * SYSCFG CLOCK DISABLE DEFINITIONS
  * *********************************************** */
 
-#define SYSCFG_CLK_DIS						(RCC->RCC_APB2ENR &= ~(1 << 14))
+#define SYSCFG_CLK_DIS()						(RCC->RCC_APB2ENR &= ~(1 << 14))
 
 /* ************************************************
  *  DEFINITIONS
@@ -236,10 +241,5 @@ typedef struct {
 /* ************************************************
  *  RETURN STATUS STRUCTURE
  * *********************************************** */
-
-typedef enum {
-	ERR_FAIL,
-	ERR_OK,
-}ut_Status;
 
 #endif /* INC_STM32F407XX_H_ */
