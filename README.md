@@ -18,6 +18,7 @@ The repository is organized as a series of standalone learning exercises, each i
 - 0006_HSI_Clock_Measurement
 - 0007_HSE_Clock_Measurement
 - 0008_GPIO_Driver_Configuration
+- 0009_GPIO_Driver_Toggle_LED_PushPull
 
 ## Learning Progression
 
@@ -63,6 +64,17 @@ It includes abstractions for:
 
 This folder represents the foundation for building a proper device driver layer in embedded C.
 
+### 0009_GPIO_Driver_Toggle_LED_PushPull
+
+This project applies the GPIO driver API to a real output task: toggling the orange user LED on the STM32F407G-DISC1 board. It demonstrates how to:
+
+- configure the MCU memory map and GPIO register layout
+- build a reusable GPIO driver with explicit hardware access
+- initialize `GPIOD Pin 13` as a push-pull output
+- use the driver API to toggle the LED in a simple forever loop
+
+The focus is on keeping the implementation close to the hardware while still organizing the code into reusable driver abstractions.
+
 ## Repository Structure
 
 ```text
@@ -96,6 +108,13 @@ STM32Disc/
 │   ├── STM32F407VGTX_RAM.ld
 │   └── Images/
 ├── 0008_GPIO_Driver_Configuration/
+│   ├── drivers/
+│   ├── Src/
+│   ├── Startup/
+│   ├── STM32F407VGTX_FLASH.ld
+│   ├── STM32F407VGTX_RAM.ld
+│   └── .project / .cproject
+├── 0009_GPIO_Driver_Toggle_LED_PushPull/
 │   ├── drivers/
 │   ├── Src/
 │   ├── Startup/
