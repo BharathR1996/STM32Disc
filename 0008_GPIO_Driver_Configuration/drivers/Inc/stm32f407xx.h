@@ -22,7 +22,7 @@
 
 /* *************** PERIPHERAL BUS BASE ADDRESS *************** 	*/
 
-#define PERIPH_BASE						0x40000000U
+#define PERIPH_BASE							0x40000000U
 #define DRV_APB1_BASEADDR					PERIPH_BASE
 #define DRV_APB2_BASEADDR					0x40010000U
 #define DRV_AHB1_BASEADDR					0x40020000U
