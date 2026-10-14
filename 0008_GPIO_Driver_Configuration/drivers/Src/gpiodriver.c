@@ -108,10 +108,7 @@ void GPIO_Init(GPIO_Handler_t *pGPIOHandle)
 	pGPIOHandle->pGPIOBaseAddr->OSPEEDR |= (pGPIOHandle->GPIOPinConfig.pinSpeed << (2 * pGPIOHandle->GPIOPinConfig.pinNumber));
 
 	// Configure port pull-up / pull-down register
-	if(pGPIOHandle->GPIOPinConfig.pinOutputType != GPIO_OUTPUT_TYPE_OPENDRAIN && pGPIOHandle->GPIOPinConfig.pinPullUpPullDown != GPIO_NO_PULL_UP_DOWN)
-	{
-		pGPIOHandle->pGPIOBaseAddr->PUPDR |= (pGPIOHandle->GPIOPinConfig.pinPullUpPullDown << (2 * pGPIOHandle->GPIOPinConfig.pinNumber));
-	}
+	pGPIOHandle->pGPIOBaseAddr->PUPDR |= (pGPIOHandle->GPIOPinConfig.pinPullUpPullDown << (2 * pGPIOHandle->GPIOPinConfig.pinNumber));
 
 	// Configure Alternate Functionality
 	if(pGPIOHandle->pGPIOBaseAddr->MODER == GPIO_MODE_ALTFUN)
