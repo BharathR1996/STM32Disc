@@ -19,6 +19,9 @@ The repository is organized as a series of standalone learning exercises, each i
 - 0007_HSE_Clock_Measurement
 - 0008_GPIO_Driver_Configuration
 - 0009_GPIO_Driver_Toggle_LED_PushPull
+- 0010_GPIO_Driver_Toggle_LED_OpenDrain
+- 0011_GPIO_Driver_Button_LED
+- 0012_GPIO_Driver_External_BTN_LED
 
 ## Learning Progression
 
@@ -75,55 +78,46 @@ This project applies the GPIO driver API to a real output task: toggling the ora
 
 The focus is on keeping the implementation close to the hardware while still organizing the code into reusable driver abstractions.
 
+### 0010_GPIO_Driver_Toggle_LED_OpenDrain
+
+This project builds on the push-pull LED example by configuring `PD13` as an
+open-drain output. It demonstrates how output type and pull-up configuration
+affect the available LED current and brightness.
+
+### 0011_GPIO_Driver_Button_LED
+
+This example reads the STM32F407G-DISC1 user button on `PA0` and controls the
+orange LED on `PD13`. It uses the board's external pull-down and introduces
+input-state interpretation and switch debouncing.
+
+### 0012_GPIO_Driver_External_BTN_LED
+
+This project uses an external active-low button on `PD14` with a pull-up and
+controls an LED on `PD13`. Its README includes circuit illustrations and
+documents troubleshooting LED polarity, breadboard continuity, and series
+resistor selection.
+
 ## Repository Structure
 
-```text
-STM32Disc/
-├── 0004_Peripheral_Clock_Configuration/
-│   ├── README.md
-│   ├── Src/
-│   ├── Startup/
-│   ├── STM32F407VGTX_FLASH.ld
-│   ├── STM32F407VGTX_RAM.ld
-│   └── Images/
-├── 0005_Peripheral_Clock_Configuration_GPIO/
-│   ├── README.md
-│   ├── Src/
-│   ├── Startup/
-│   ├── STM32F407VGTX_FLASH.ld
-│   ├── STM32F407VGTX_RAM.ld
-│   └── Images/
-├── 0006_HSI_Clock_Measurement/
-│   ├── README.md
-│   ├── Src/
-│   ├── Startup/
-│   ├── STM32F407VGTX_FLASH.ld
-│   ├── STM32F407VGTX_RAM.ld
-│   └── Images/
-├── 0007_HSE_Clock_Measurement/
-│   ├── README.md
-│   ├── Src/
-│   ├── Startup/
-│   ├── STM32F407VGTX_FLASH.ld
-│   ├── STM32F407VGTX_RAM.ld
-│   └── Images/
-├── 0008_GPIO_Driver_Configuration/
-│   ├── drivers/
-│   ├── Src/
-│   ├── Startup/
-│   ├── STM32F407VGTX_FLASH.ld
-│   ├── STM32F407VGTX_RAM.ld
-│   └── .project / .cproject
-├── 0009_GPIO_Driver_Toggle_LED_PushPull/
-│   ├── drivers/
-│   ├── Src/
-│   ├── Startup/
-│   ├── STM32F407VGTX_FLASH.ld
-│   ├── STM32F407VGTX_RAM.ld
-│   └── .project / .cproject
-├── README.md
-└── .git/
-```
+Each numbered directory is a standalone STM32CubeIDE project. The projects
+progress from register-level fundamentals to GPIO drivers and hardware
+applications.
+
+| Project folder | Focus |
+| --- | --- |
+| `0004_Peripheral_Clock_Configuration` | Enable and configure a peripheral clock using ADC1. |
+| `0005_Peripheral_Clock_Configuration_GPIO` | Enable the GPIO clock and drive a GPIO pin. |
+| `0006_HSI_Clock_Measurement` | Route and measure the internal HSI clock on PA8. |
+| `0007_HSE_Clock_Measurement` | Route and measure the external HSE clock on PA8. |
+| `0008_GPIO_Driver_Configuration` | Configure the reusable, register-level GPIO driver. |
+| `0009_GPIO_Driver_Toggle_LED_PushPull` | Drive the on-board LED using push-pull output. |
+| `0010_GPIO_Driver_Toggle_LED_OpenDrain` | Explore open-drain output and pull-up behavior. |
+| `0011_GPIO_Driver_Button_LED` | Read the on-board button and control the on-board LED. |
+| `0012_GPIO_Driver_External_BTN_LED` | Use an external pull-up button and LED; includes circuit diagrams and troubleshooting. |
+
+Projects generally include `Src/`, `Startup/`, linker scripts, and (where
+applicable) `drivers/`, `Images/`, and STM32CubeIDE project configuration
+files. Open a project's README for its exact hardware setup and instructions.
 
 ## Key Concepts Covered
 
@@ -134,6 +128,9 @@ STM32Disc/
 - Bare-metal C driver design
 - MCU clock source configuration
 - Direct bit manipulation and register masks
+- Push-pull and open-drain GPIO outputs
+- Active-high and active-low button inputs with pull resistors
+- External LED current limiting and circuit troubleshooting
 
 ## Recommended Workflow
 
@@ -166,4 +163,3 @@ Potential next steps for this learning repository include:
 - adding EXTI interrupt examples
 - building a full custom peripheral driver library
 - documenting oscilloscope screenshots and results for each exercise
-
