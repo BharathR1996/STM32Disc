@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+  <title id="title">External LED current-limiting circuit for STM32 PD13</title>
+  <desc id="desc">PD13 drives a 390 ohm resistor in series with a green LED. The LED anode faces the resistor and its cathode connects to ground. The estimated current at 3.3 volts with a 2.1 volt LED is 3.08 milliamps.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #172b4d; }
+      .wire { fill: none; stroke: #344563; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .component { fill: #fff; stroke: #344563; stroke-width: 3; }
+      .title { font-size: 27px; font-weight: 700; }
+      .label { font-size: 20px; }
+      .small { font-size: 16px; fill: #526581; }
+      .node { fill: #344563; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="#2e7d32"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="430" rx="18" fill="#f7f9fc"/>
+  <rect x="22" y="22" width="956" height="386" rx="14" fill="#fff" stroke="#d9e2ef" stroke-width="2"/>
+  <text x="52" y="67" class="title">External green LED · current limited</text>
+  <text x="54" y="103" class="small">Shared ground between the STM32 and the external circuit</text>
+
+  <rect x="58" y="161" width="142" height="66" rx="10" fill="#eaf2ff" stroke="#2f6fed" stroke-width="2"/>
+  <text x="129" y="189" class="label" text-anchor="middle" font-weight="700">STM32</text>
+  <text x="129" y="213" class="label" text-anchor="middle">PD13</text>
+  <path class="wire" d="M200 194 H314"/>
+
+  <rect class="component" x="314" y="169" width="148" height="50" rx="5"/>
+  <path class="wire" d="M330 206 L350 182 L370 206 L390 182 L410 206 L430 182 L446 206"/>
+  <text x="388" y="153" class="label" text-anchor="middle" font-weight="700">390 Ω resistor</text>
+  <path class="wire" d="M462 194 H550"/>
+  <circle cx="550" cy="194" r="7" class="node"/>
+
+  <path class="wire" d="M550 194 H625"/>
+  <path d="M625 155 L625 233 L690 194 Z" fill="#dcfce7" stroke="#344563" stroke-width="3"/>
+  <path d="M701 153 V235" stroke="#344563" stroke-width="5" stroke-linecap="round"/>
+  <path class="wire" d="M701 194 H850 V276"/>
+  <text x="638" y="258" class="small" text-anchor="middle">Anode (+)</text>
+  <text x="754" y="258" class="small" text-anchor="middle">Cathode (−)</text>
+  <path d="M661 145 L685 121" stroke="#2e7d32" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M682 160 L706 136" stroke="#2e7d32" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="662" y="115" class="label" fill="#2e7d32" font-weight="700">Light</text>
+
+  <path class="wire" d="M850 276 V320"/>
+  <path class="wire" d="M819 320 H881 M829 334 H871 M839 348 H861"/>
+  <text x="850" y="379" class="label" text-anchor="middle" font-weight="700">GND</text>
+
+  <rect x="58" y="293" width="455" height="74" rx="12" fill="#edf7ed"/>
+  <text x="82" y="324" class="label" font-weight="700">Estimated LED current: ≈ 3.08 mA</text>
+  <text x="82" y="350" class="small">I ≈ (3.3 V − 2.1 V) / 390 Ω</text>
+</svg>

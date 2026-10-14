@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+  <title id="title">External pull-up button circuit for STM32 PD14</title>
+  <desc id="desc">A resistor connects 3.3 volts to the PD14 input node. A normally-open button connects that node to ground when pressed. The input is high when released and low when pressed.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #172b4d; }
+      .wire { fill: none; stroke: #344563; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .component { fill: #fff; stroke: #344563; stroke-width: 3; }
+      .node { fill: #344563; }
+      .title { font-size: 27px; font-weight: 700; }
+      .label { font-size: 20px; }
+      .small { font-size: 16px; fill: #526581; }
+      .state { font-size: 17px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="1000" height="430" rx="18" fill="#f7f9fc"/>
+  <rect x="22" y="22" width="956" height="386" rx="14" fill="#fff" stroke="#d9e2ef" stroke-width="2"/>
+  <text x="52" y="67" class="title">External button input · active LOW</text>
+  <text x="54" y="103" class="small">External pull-up required · GPIO internal pull disabled</text>
+
+  <text x="75" y="190" class="label" font-weight="700" fill="#b42318">3.3 V</text>
+  <path class="wire" d="M125 183 H205"/>
+  <rect class="component" x="205" y="158" width="112" height="50" rx="5"/>
+  <path class="wire" d="M218 194 L234 172 L250 194 L266 172 L282 194 L304 172"/>
+  <text x="226" y="146" class="label" font-weight="700">Rpull-up</text>
+  <text x="222" y="232" class="small">external resistor</text>
+
+  <path class="wire" d="M317 183 H440"/>
+  <circle cx="440" cy="183" r="8" class="node"/>
+  <path class="wire" d="M440 183 H790"/>
+  <rect x="790" y="150" width="142" height="66" rx="10" fill="#eaf2ff" stroke="#2f6fed" stroke-width="2"/>
+  <text x="861" y="178" class="label" text-anchor="middle" font-weight="700">STM32</text>
+  <text x="861" y="202" class="label" text-anchor="middle">PD14</text>
+
+  <path class="wire" d="M440 191 V266"/>
+  <circle cx="440" cy="274" r="7" class="component"/>
+  <circle cx="440" cy="354" r="7" class="component"/>
+  <path class="wire" d="M446 269 L500 237"/>
+  <path class="wire" d="M440 361 V375"/>
+  <path class="wire" d="M413 375 H467 M422 387 H458 M432 399 H448"/>
+  <text x="520" y="281" class="label" font-weight="700">Normally-open button</text>
+  <text x="520" y="309" class="small">press to connect PD14 to GND</text>
+
+  <rect x="54" y="337" width="317" height="52" rx="10" fill="#edf7ed"/>
+  <circle cx="78" cy="363" r="8" fill="#2e7d32"/>
+  <text x="97" y="369" class="state">Released HIGH (1) · Pressed LOW (0)</text>
+</svg>
