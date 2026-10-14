@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="450" viewBox="0 0 1100 450" role="img" aria-labelledby="title desc">
+  <title id="title">Pull-down and pull-up button input circuits</title>
+  <desc id="desc">Left: a resistor pulls the GPIO input to ground and a button connects it to VDD, making the idle state low and pressed state high. Right: a resistor pulls the input to VDD and a button connects it to ground, making the idle state high and pressed state low.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #172b4d; }
+      .wire { fill: none; stroke: #253858; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .part { fill: #fff; stroke: #253858; stroke-width: 3; }
+      .head { font-size: 23px; font-weight: 700; }
+      .label { font-size: 18px; }
+      .state { font-size: 17px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="1100" height="450" fill="#ffffff"/>
+  <text x="40" y="44" class="head">Give every button input a defined idle voltage</text>
+  <line x1="550" y1="72" x2="550" y2="420" stroke="#dfe3e8" stroke-width="2"/>
+
+  <text x="70" y="91" class="head">Pull-down: idle LOW</text>
+  <text x="620" y="91" class="head">Pull-up: idle HIGH</text>
+
+  <!-- Pull-down circuit -->
+  <text x="205" y="132" class="label" font-weight="700">VDD</text>
+  <path class="wire" d="M230 142 V174"/>
+  <circle cx="230" cy="180" r="6" class="part"/>
+  <circle cx="310" cy="180" r="6" class="part"/>
+  <path class="wire" d="M236 177 L299 145"/>
+  <path class="wire" d="M316 180 V230 H378"/>
+  <circle cx="378" cy="230" r="7" fill="#253858"/>
+  <path class="wire" d="M378 230 H464"/>
+  <text x="388" y="219" class="label">GPIO input</text>
+  <path class="wire" d="M378 237 V275"/>
+  <rect class="part" x="357" y="275" width="42" height="80"/>
+  <path class="wire" d="M378 282 L360 294 L396 306 L360 318 L396 330 L378 347"/>
+  <path class="wire" d="M378 355 V379"/>
+  <path class="wire" d="M350 379 H406 M359 391 H397 M369 403 H387"/>
+  <text x="112" y="260" class="label">Button connects input to VDD</text>
+  <text x="412" y="310" class="label">Pull-down</text>
+  <text x="135" y="430" class="state">Released = 0   |   Pressed = 1</text>
+
+  <!-- Pull-up circuit -->
+  <text x="778" y="132" class="label" font-weight="700">VDD</text>
+  <path class="wire" d="M800 142 V175"/>
+  <rect class="part" x="779" y="175" width="42" height="80"/>
+  <path class="wire" d="M800 182 L782 194 L818 206 L782 218 L818 230 L800 247"/>
+  <path class="wire" d="M800 255 V278"/>
+  <circle cx="800" cy="278" r="7" fill="#253858"/>
+  <path class="wire" d="M800 278 H902"/>
+  <text x="808" y="267" class="label">GPIO input</text>
+  <path class="wire" d="M800 285 V323"/>
+  <circle cx="800" cy="329" r="6" class="part"/>
+  <circle cx="880" cy="329" r="6" class="part"/>
+  <path class="wire" d="M806 326 L869 294"/>
+  <path class="wire" d="M886 329 V365"/>
+  <path class="wire" d="M858 365 H914 M867 377 H905 M877 389 H895"/>
+  <text x="833" y="208" class="label">Pull-up</text>
+  <text x="628" y="345" class="label">Button connects input to GND</text>
+  <text x="685" y="430" class="state">Released = 1   |   Pressed = 0</text>
+</svg>

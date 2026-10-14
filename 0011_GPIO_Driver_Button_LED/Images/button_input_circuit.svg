@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="500" viewBox="0 0 1120 500" role="img" aria-labelledby="title desc">
+  <title id="title">STM32F407G-DISC1 user button input circuit</title>
+  <desc id="desc">The 3.3 volt supply connects through a 100 ohm resistor and the normally open user button to a node. From that node, a 330 ohm resistor and SB20 connect to PA0, while a 220 kilo-ohm resistor pulls the node to ground. The 100 nanofarad capacitor C38 is not fitted.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #172b4d; }
+      .wire { fill: none; stroke: #253858; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .component { fill: #fff; stroke: #253858; stroke-width: 3; }
+      .node { fill: #253858; }
+      .label { font-size: 20px; }
+      .small { font-size: 17px; }
+      .heading { font-size: 27px; font-weight: 700; }
+      .note { fill: #526581; font-size: 17px; }
+    </style>
+  </defs>
+  <rect width="1120" height="500" fill="#ffffff"/>
+  <text x="40" y="48" class="heading">STM32F407G-DISC1 user / wake-up button (B1)</text>
+  <text x="40" y="82" class="note">Button released: R39 pulls PA0 low. Button pressed: VDD drives PA0 high.</text>
+
+  <!-- Main button-to-input path -->
+  <text x="54" y="202" class="label" font-weight="700">VDD</text>
+  <path class="wire" d="M105 195 H150"/>
+  <rect class="component" x="150" y="174" width="112" height="42" rx="3"/>
+  <path class="wire" d="M164 205 L180 185 L196 205 L212 185 L228 205 L246 185"/>
+  <path class="wire" d="M262 195 H315"/>
+  <circle cx="327" cy="195" r="8" class="node"/>
+  <path class="wire" d="M327 195 H370"/>
+
+  <!-- Normally-open switch -->
+  <circle cx="377" cy="195" r="6" class="component"/>
+  <circle cx="463" cy="195" r="6" class="component"/>
+  <path class="wire" d="M383 192 L452 153"/>
+  <path class="wire" d="M469 195 H520"/>
+  <text x="389" y="128" class="label" font-weight="700">B1 button</text>
+  <text x="393" y="231" class="small">normally open</text>
+
+  <!-- Optional capacitor across switch contacts, not fitted -->
+  <path d="M377 195 V320 H410 M463 195 V320 H430" fill="none" stroke="#8993a4" stroke-width="3" stroke-dasharray="8 7"/>
+  <path d="M409 304 V336 M431 304 V336" fill="none" stroke="#8993a4" stroke-width="4"/>
+  <text x="448" y="318" class="small" fill="#8993a4">C38 100 nF</text>
+  <text x="448" y="343" class="small" fill="#b42318" font-weight="700">NOT FITTED</text>
+
+  <!-- Input node and series input path -->
+  <path class="wire" d="M520 195 H574"/>
+  <circle cx="585" cy="195" r="8" class="node"/>
+  <path class="wire" d="M585 195 H625"/>
+  <rect class="component" x="625" y="174" width="112" height="42" rx="3"/>
+  <path class="wire" d="M639 205 L655 185 L671 205 L687 185 L703 205 L721 185"/>
+  <path class="wire" d="M737 195 H770"/>
+  <rect class="component" x="770" y="174" width="86" height="42" rx="3"/>
+  <path class="wire" d="M784 195 H842"/>
+  <path class="wire" d="M856 195 H945"/>
+  <text x="641" y="157" class="label" font-weight="700">R35</text>
+  <text x="646" y="245" class="small">330 Ω</text>
+  <text x="781" y="157" class="label" font-weight="700">SB20</text>
+  <text x="965" y="202" class="label" font-weight="700">PA0</text>
+
+  <!-- Pull-down resistor -->
+  <path class="wire" d="M585 203 V271"/>
+  <rect class="component" x="564" y="271" width="42" height="112" rx="3"/>
+  <path class="wire" d="M585 283 L565 299 L605 315 L565 331 L605 347 L585 371"/>
+  <path class="wire" d="M585 383 V411"/>
+  <path class="wire" d="M557 411 H613 M566 423 H604 M576 435 H594"/>
+  <text x="626" y="315" class="label" font-weight="700">R39</text>
+  <text x="626" y="342" class="small">220 kΩ</text>
+  <text x="626" y="369" class="small">pull-down</text>
+
+  <!-- R38 shown in series with VDD path -->
+  <text x="166" y="157" class="label" font-weight="700">R38</text>
+  <text x="176" y="245" class="small">100 Ω</text>
+
+  <rect x="40" y="458" width="1040" height="1" fill="#dfe3e8"/>
+  <text x="40" y="483" class="note">PA0 is configured with no internal pull because the board already has R39.</text>
+</svg>

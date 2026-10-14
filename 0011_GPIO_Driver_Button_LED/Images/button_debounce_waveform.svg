@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="510" viewBox="0 0 1100 510" role="img" aria-labelledby="title desc">
+  <title id="title">Button switch bounce and debouncing waveform</title>
+  <desc id="desc">Three digital waveforms show an ideal clean press, real contact bounce with rapid transitions, and a debounced output that changes only after the input is stable.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #172b4d; }
+      .axis { stroke: #76839a; stroke-width: 2; }
+      .wave { fill: none; stroke: #1769aa; stroke-width: 4; stroke-linejoin: round; stroke-linecap: square; }
+      .filtered { fill: none; stroke: #16805d; stroke-width: 4; stroke-linejoin: round; stroke-linecap: square; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 18px; }
+      .small { font-size: 16px; fill: #526581; }
+    </style>
+  </defs>
+  <rect width="1100" height="510" fill="#ffffff"/>
+  <text x="35" y="42" class="title">A mechanical button may bounce before settling</text>
+  <text x="1015" y="82" class="small">time →</text>
+
+  <text x="35" y="143" class="label" font-weight="700">Ideal</text>
+  <text x="35" y="164" class="small">press</text>
+  <line x1="180" y1="160" x2="1030" y2="160" class="axis"/>
+  <path d="M180 165 H480 V105 H1030" class="wave"/>
+
+  <text x="35" y="275" class="label" font-weight="700">Contact</text>
+  <text x="35" y="296" class="small">bounce</text>
+  <line x1="180" y1="292" x2="1030" y2="292" class="axis"/>
+  <path d="M180 297 H480 V237 H505 V297 H530 V237 H555 V297 H580 V237 H605 V297 H630 V237 H1030" class="wave"/>
+  <rect x="476" y="215" width="160" height="95" fill="#f6c344" opacity="0.17"/>
+  <text x="476" y="330" class="small">rapid transitions (bounce)</text>
+
+  <text x="35" y="420" class="label" font-weight="700">Debounced</text>
+  <text x="35" y="441" class="small">signal</text>
+  <line x1="180" y1="435" x2="1030" y2="435" class="axis"/>
+  <path d="M180 440 H640 V380 H1030" class="filtered"/>
+  <path d="M480 310 V360 H640 V375" fill="none" stroke="#16805d" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="655" y="378" class="small">change accepted after input stays stable</text>
+  <text x="180" y="485" class="small">LOW = released</text>
+  <text x="884" y="485" class="small">HIGH = pressed</text>
+</svg>
