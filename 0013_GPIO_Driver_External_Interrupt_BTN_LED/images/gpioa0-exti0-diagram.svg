@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title description">
+  <title id="title">GPIOA pin 0 rising-edge button interrupt and LED response</title>
+  <desc id="description">An active-high normally-open button connects 3.3 volts to GPIOA pin 0 when pressed. An external pull-down resistor holds the input low when released. A rising edge triggers EXTI line 0, NVIC interrupt 6, and the EXTI0 handler, which toggles the LED output on GPIOD pin 13.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#526887"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #1c3154; }
+      .wire { fill: none; stroke: #344b70; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #526887; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .card { fill: #ffffff; stroke: #d6e1f0; stroke-width: 2; }
+      .node { fill: #344b70; }
+      .small { font-size: 17px; fill: #536989; }
+      .label { font-size: 20px; font-weight: 700; }
+      .box { fill: #f3f7ff; stroke: #b8c9e3; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="650" rx="24" fill="#f4f7fb"/>
+  <rect x="24" y="24" width="1152" height="602" rx="18" class="card"/>
+
+  <text x="60" y="76" font-size="30" font-weight="700">GPIOA pin 0 button input · active HIGH</text>
+  <text x="62" y="108" class="small">External pull-down required · GPIO internal pull disabled · rising edge triggers EXTI0</text>
+
+  <text x="76" y="205" class="label">3.3 V</text>
+  <path d="M136 198 H278" class="wire"/>
+  <circle cx="278" cy="198" r="7" class="node"/>
+  <text x="223" y="161" class="label">Normally-open</text>
+  <text x="253" y="184" class="small">button</text>
+  <path d="M278 198 V266" class="wire"/>
+  <circle cx="278" cy="275" r="8" fill="#fff" stroke="#344b70" stroke-width="4"/>
+  <path d="M285 270 L357 229" class="wire"/>
+  <circle cx="370" cy="221" r="7" class="node"/>
+  <path d="M370 221 H635" class="wire"/>
+  <text x="387" y="253" class="small">Press to connect 3.3 V to PA0</text>
+
+  <circle cx="500" cy="221" r="7" class="node"/>
+  <path d="M500 221 V293" class="wire"/>
+  <path d="M500 293 L486 306 L514 320 L486 334 L514 348 L486 362 L514 376 L500 389" class="wire"/>
+  <path d="M500 389 V405" class="wire"/>
+  <path d="M474 405 H526 M481 415 H519 M489 425 H511" class="wire"/>
+  <text x="535" y="331" class="label">Rpull-down</text>
+  <text x="535" y="356" class="small">external resistor</text>
+  <text x="460" y="451" class="small">GND</text>
+
+  <path d="M635 221 H785" class="wire"/>
+  <circle cx="635" cy="221" r="7" class="node"/>
+  <rect x="785" y="156" width="324" height="174" rx="16" fill="#eaf2ff" stroke="#3974df" stroke-width="2.5"/>
+  <text x="947" y="199" text-anchor="middle" font-size="24" font-weight="700">STM32F407</text>
+  <path d="M785 221 H838" class="wire"/>
+  <text x="852" y="229" font-size="20" font-weight="700">PA0 / EXTI0</text>
+  <path d="M1055 284 H1109" class="wire"/>
+  <text x="852" y="291" font-size="20" font-weight="700">GPIOD pin 13 output</text>
+
+  <rect x="61" y="474" width="1078" height="105" rx="14" fill="#f8faff" stroke="#d6e1f0" stroke-width="2"/>
+  <text x="82" y="504" font-size="16" font-weight="700" fill="#536989">INTERRUPT RESPONSE</text>
+
+  <rect x="82" y="520" width="174" height="42" rx="9" class="box"/>
+  <text x="169" y="547" text-anchor="middle" font-size="17" font-weight="700">PA0 rising edge</text>
+  <path d="M260 541 H295" class="thin" marker-end="url(#arrow)"/>
+
+  <rect x="305" y="520" width="174" height="42" rx="9" class="box"/>
+  <text x="392" y="547" text-anchor="middle" font-size="17" font-weight="700">EXTI PR0 pending</text>
+  <path d="M483 541 H518" class="thin" marker-end="url(#arrow)"/>
+
+  <rect x="528" y="520" width="174" height="42" rx="9" class="box"/>
+  <text x="615" y="547" text-anchor="middle" font-size="17" font-weight="700">NVIC IRQ 6</text>
+  <path d="M706 541 H741" class="thin" marker-end="url(#arrow)"/>
+
+  <rect x="751" y="520" width="174" height="42" rx="9" class="box"/>
+  <text x="838" y="547" text-anchor="middle" font-size="17" font-weight="700">EXTI0_IRQHandler</text>
+  <path d="M929 541 H964" class="thin" marker-end="url(#arrow)"/>
+
+  <rect x="974" y="520" width="142" height="42" rx="9" fill="#eaf6eb" stroke="#b9dfbd" stroke-width="2"/>
+  <text x="1045" y="547" text-anchor="middle" font-size="17" font-weight="700">Toggle PD13</text>
+
+  <rect x="62" y="425" width="380" height="40" rx="10" fill="#eaf6eb"/>
+  <circle cx="86" cy="445" r="8" fill="#32824a"/>
+  <text x="252" y="451" text-anchor="middle" font-size="16" font-weight="700">Released LOW (0) · Pressed HIGH (1)</text>
+</svg>
